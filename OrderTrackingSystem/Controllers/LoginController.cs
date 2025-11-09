@@ -37,7 +37,7 @@ namespace OrderTrackingSystem.Controllers
             }
             else
             {
-                ViewBag.Message = "帳號或密碼錯誤!";
+                ViewBag.Message = "帳號或密碼錯誤!!!!";
                 return View(value);
 
             }
