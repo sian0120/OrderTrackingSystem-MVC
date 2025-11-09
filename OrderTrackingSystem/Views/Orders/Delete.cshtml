@@ -1,0 +1,82 @@
+﻿@model OrderTrackingSystem.Models.Order
+
+@{
+    ViewData["Title"] = "刪除訂單";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-danger text-white text-center rounded-top-4 py-3">
+            <h3 class="mb-0">⚠️ 刪除訂單確認</h3>
+        </div>
+
+        <div class="card-body bg-light rounded-bottom-4">
+            <h5 class="text-center text-danger fw-bold mb-4">您確定要刪除此筆訂單嗎？</h5>
+
+            <div class="table-responsive">
+                <table class="table table-bordered bg-white align-middle">
+                    <tbody>
+                        <tr>
+                            <th class="text-end w-25 text-secondary">訂單編號</th>
+                            <td>@Html.DisplayFor(model => model.OrderNo)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">客戶姓名</th>
+                            <td>@Html.DisplayFor(model => model.CustomerName)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">電話</th>
+                            <td>@Html.DisplayFor(model => model.CustomerPhone)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">電子郵件</th>
+                            <td>@Html.DisplayFor(model => model.CustomerEmail)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">訂單日期</th>
+                            <td>@Html.DisplayFor(model => model.OrderDate)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">金額</th>
+                            <td class="text-danger fw-bold">@Html.DisplayFor(model => model.TotalAmount)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">狀態</th>
+                            <td>@Html.DisplayFor(model => model.OrderStatus)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">付款方式</th>
+                            <td>@Html.DisplayFor(model => model.PaymentMethod)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">送貨地址</th>
+                            <td>@Html.DisplayFor(model => model.ShippingAddress)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">備註</th>
+                            <td>@Html.DisplayFor(model => model.Remark)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">建立時間</th>
+                            <td>@Html.DisplayFor(model => model.CreateTime)</td>
+                        </tr>
+                        <tr>
+                            <th class="text-end text-secondary">更新時間</th>
+                            <td>@Html.DisplayFor(model => model.UpdateTime)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <form asp-action="Delete" class="text-center mt-4">
+                <input type="hidden" asp-for="OrderId" />
+                <button type="submit" class="btn btn-danger px-4">
+                    <i class="bi bi-trash-fill"></i> 確定刪除
+                </button>
+                <a asp-action="Index" class="btn btn-secondary ms-2 px-4">
+                    <i class="bi bi-arrow-left-circle"></i> 返回清單
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

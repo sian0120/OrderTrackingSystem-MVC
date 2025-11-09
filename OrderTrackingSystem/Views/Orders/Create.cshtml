@@ -1,0 +1,123 @@
+﻿@model OrderTrackingSystem.Models.Order
+
+@{
+    ViewData["Title"] = "新增訂單";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white text-center rounded-top-4 py-3">
+                    <h3 class="mb-0">🧾 新增訂單</h3>
+                </div>
+                <div class="card-body bg-light rounded-bottom-4">
+                    <form asp-controller="Orders" asp-action="Create" method="post">
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="OrderNo" class="form-label fw-bold">訂單編號</label>
+                                <input asp-for="OrderNo" class="form-control" placeholder="例如：ORD011" />
+                                <span asp-validation-for="OrderNo" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CustomerName" class="form-label fw-bold">客戶姓名</label>
+                                <input asp-for="CustomerName" class="form-control" placeholder="輸入客戶名稱" />
+                                <span asp-validation-for="CustomerName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CustomerPhone" class="form-label fw-bold">電話</label>
+                                <input asp-for="CustomerPhone" class="form-control" placeholder="09xxxxxxxx" />
+                                <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CustomerEmail" class="form-label fw-bold">電子郵件</label>
+                                <input asp-for="CustomerEmail" class="form-control" placeholder="example@email.com" />
+                                <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="OrderDate" class="form-label fw-bold">訂單日期</label>
+                                <input asp-for="OrderDate" class="form-control" type="date" />
+                                <span asp-validation-for="OrderDate" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="TotalAmount" class="form-label fw-bold">金額</label>
+                                <input asp-for="TotalAmount" class="form-control" placeholder="輸入總金額" />
+                                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="OrderStatus" class="form-label fw-bold">狀態</label>
+                                <select asp-for="OrderStatus" class="form-select">
+                                    <option value="已下訂">已下訂</option>
+                                    <option value="已出貨">已出貨</option>
+                                    <option value="已完成">已完成</option>
+                                    <option value="已取消">已取消</option>
+                                </select>
+                                <span asp-validation-for="OrderStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="PaymentMethod" class="form-label fw-bold">付款方式</label>
+                                <select asp-for="PaymentMethod" class="form-select">
+                                    <option value="信用卡">信用卡</option>
+                                    <option value="貨到付款">貨到付款</option>
+                                    <option value="轉帳">轉帳</option>
+                                </select>
+                                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ShippingAddress" class="form-label fw-bold">送貨地址</label>
+                            <input asp-for="ShippingAddress" class="form-control" placeholder="輸入完整送貨地址" />
+                            <span asp-validation-for="ShippingAddress" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Remark" class="form-label fw-bold">備註</label>
+                            <textarea asp-for="Remark" class="form-control" rows="2" placeholder="可輸入備註說明"></textarea>
+                            <span asp-validation-for="Remark" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CreateTime" class="form-label fw-bold">建立時間</label>
+                                <input asp-for="CreateTime" class="form-control" type="datetime-local" />
+                                <span asp-validation-for="CreateTime" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="UpdateTime" class="form-label fw-bold">更新時間</label>
+                                <input asp-for="UpdateTime" class="form-control" type="datetime-local" />
+                                <span asp-validation-for="UpdateTime" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success px-4">
+                                <i class="bi bi-check-circle"></i> 新增訂單
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary ms-2 px-4">
+                                <i class="bi bi-arrow-left-circle"></i> 返回清單
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

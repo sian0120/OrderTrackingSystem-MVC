@@ -1,0 +1,47 @@
+﻿@model IEnumerable<OrderTrackingSystem.Models.Order>
+
+@{
+    ViewData["Title"] = "訂單清單";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">📦 訂單清單</h2>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+    }
+    else if (!Model.Any())
+    {
+        <div class="alert alert-warning">目前沒有任何訂單資料。</div>
+    }
+    else
+    {
+        <table class="table table-striped table-bordered text-center align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>訂單編號</th>
+                    <th>客戶名稱</th>
+                    <th>電話</th>
+                    <th>金額</th>
+                    <th>狀態</th>
+                    <th>日期</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.OrderNo</td>
+                        <td>@item.CustomerName</td>
+                        <td>@item.CustomerPhone</td>
+                        <td>@item.TotalAmount.ToString("N0")</td>
+                        <td>@item.OrderStatus</td>
+                        <td>@item.OrderDate.ToString("yyyy-MM-dd")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+

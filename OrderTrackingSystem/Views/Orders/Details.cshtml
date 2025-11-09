@@ -1,0 +1,62 @@
+﻿@model OrderTrackingSystem.Models.Order
+
+@{
+    ViewData["Title"] = "訂單詳細資料";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-info text-white text-center rounded-top-4 py-3">
+            <h3 class="mb-0">📄 訂單詳細資料</h3>
+        </div>
+
+        <div class="card-body bg-light rounded-bottom-4 px-5 py-4" style="font-size:1.05rem;">
+            <dl class="row">
+                <dt class="col-sm-3 fw-bold text-secondary">訂單編號</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.OrderNo)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">客戶姓名</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.CustomerName)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">電話</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.CustomerPhone)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">電子郵件</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.CustomerEmail)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">訂單日期</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.OrderDate)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">金額</dt>
+                <dd class="col-sm-9 text-danger fw-bold">@Html.DisplayFor(model => model.TotalAmount)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">訂單狀態</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.OrderStatus)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">付款方式</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.PaymentMethod)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">送貨地址</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.ShippingAddress)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">備註</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Remark)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">建立時間</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.CreateTime)</dd>
+
+                <dt class="col-sm-3 fw-bold text-secondary">更新時間</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.UpdateTime)</dd>
+            </dl>
+
+            <div class="text-center mt-4">
+                <a asp-action="Edit" asp-route-id="@Model?.OrderId" class="btn btn-warning px-4 fw-bold me-2">
+                    <i class="bi bi-pencil-square"></i> 編輯
+                </a>
+                <a asp-action="Index" class="btn btn-secondary px-4 fw-bold">
+                    <i class="bi bi-arrow-left-circle"></i> 返回清單
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
