@@ -20,7 +20,7 @@ OrderTrackingSystem/
 ├── Models/ # 資料模型，定義資料庫對應實體
 ├── Dtos/ # 資料傳輸物件 (Data Transfer Objects)，負責在控制器與 View 之間傳遞資料，
           # 避免直接傳回資料庫實體（Model），確保系統維護性與安全性。
-├── Views/ # 前端畫面 (Razor Pages)，負責顯示介面
+├── # 負責前端畫面呈現 (Razor View)，以 Bootstrap 設計版面，顯示資料與互動介面
 ├── wwwroot/ # 靜態資源 (CSS, JS, Images)
 ├── appsettings.json # 資料庫連線與系統設定
 └── Program.cs # 系統進入點與服務註冊
